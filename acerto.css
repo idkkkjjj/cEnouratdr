@@ -1,0 +1,69 @@
+      body {
+          background-color: black;
+          color: white;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+          margin: 0;
+      }
+      .dark_gray {
+          color: darkgray;
+      }
+      .gray {
+          color: gray;
+          font-size:x-large
+      }
+      div {
+          text-align: center;
+      }
+      .button {
+          height: 30;
+          width: auto;  
+      } 
+      h1 {
+        margin: 0;
+    }
+      #ambar {
+        width: 200px;
+        cursor: pointer;
+      }
+      #interrogacao {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        font-size: 2em;
+        color: rgba(255, 255, 255, 0.137);
+        opacity: 0.3;
+        cursor: pointer;
+      }
+      #tocha {
+        position: absolute;
+        bottom: 10%;
+        right: 10%;
+        width: 175px;
+        cursor: pointer;
+        display: none;
+        transform: scaleX(-1);
+      }
+      #message {
+        position: absolute;
+        top: 70%;
+        text-align: center;
+        font-size: 1.2em;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+      img {
+        max-width: 70%;
+        max-height: 70%;
+    }
+    .footer-text {
+        position: absolute;
+        bottom: 10px;
+        width: 100%;
+        text-align: center;
+        font-size: large;
+    }
