@@ -15,6 +15,14 @@
           color: gray;
           font-size:x-large
       }
+      .white {
+          color: lightgray;
+          font-size:x-large
+      }
+      .red {
+          color: red;
+          font-size:x-large
+      }
       div {
           text-align: center;
       }
