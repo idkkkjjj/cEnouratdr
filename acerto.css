@@ -30,6 +30,12 @@
           height: 30;
           width: auto;  
       } 
+      .tradutor {
+
+        font-size: x-large;
+        color: rgba(255, 255, 255, 0.3);
+        opacity: 0.5
+      }
       h1 {
         margin: 0;
     }
