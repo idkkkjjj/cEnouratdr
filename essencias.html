@@ -1,0 +1,123 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Décimo Quarto</title>
+    <link rel="icon" href="icon2.png" type="image/png">
+    <style>
+      body {
+        background-color: black;
+        color: white;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 200vh; 
+      }
+
+      #porta {
+        margin-top: 20px;
+        width: 300px;
+        cursor: pointer;
+        position: relative;
+      }
+
+      #tapete {
+        display: block;
+        width: 300px;
+        margin-top: 800px;
+        cursor: pointer;
+      }
+
+      #chave {
+        display: none;
+        position: absolute;
+        width: 50px;
+        cursor: pointer;
+      }
+
+      #biscoito {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        width: 200px;
+        cursor: pointer;
+      }
+
+      #mensagem {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        font-size: 1.2em;
+        color: white;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="position: relative;">
+      <img id="porta" src="porta.png" alt="Porta">
+      <img id="biscoito" src="biscoito.png" alt="Biscoito">
+    </div>
+    <img id="tapete" src="tapete.png" alt="Tapete">
+    <img id="chave" src="chave.png" alt="Chave">
+    <div id="mensagem"></div>
+
+    <script>
+      let inventory = {
+        hasChave: false,
+      };
+
+      const porta = document.getElementById('porta');
+      const tapete = document.getElementById('tapete');
+      const chave = document.getElementById('chave');
+      const biscoito = document.getElementById('biscoito');
+      const mensagem = document.getElementById('mensagem');
+
+      function showMensagem(text) {
+        mensagem.textContent = text;
+        mensagem.style.opacity = '1';
+        setTimeout(() => {
+          mensagem.style.opacity = '0';
+        }, 1000);
+      }
+
+      tapete.addEventListener('click', () => {
+        const tapeteRect = tapete.getBoundingClientRect();
+        chave.style.top = `${tapeteRect.top + window.scrollY}px`;
+        chave.style.left = `${tapeteRect.left + tapeteRect.width / 2 - chave.offsetWidth / 2}px`;
+        tapete.remove();
+        chave.style.display = "block";
+        showMensagem("Você encontrou a chave.");
+      });
+
+      chave.addEventListener('click', () => {
+        inventory.hasChave = true;
+        chave.style.display = 'none';
+        showMensagem("Você pegou a chave.");
+      });
+
+      porta.addEventListener('click', () => {
+        if (inventory.hasChave) {
+          porta.src = 'porta2.png';
+          biscoito.style.display = 'block'; 
+          showMensagem("Você abriu a porta.");
+        } else {
+          showMensagem("A porta está trancada...");
+        }
+      });
+
+      biscoito.addEventListener('click', () => {
+        biscoito.src = 'biscoitoquebrado.png';
+        showMensagem("Você quebrou o biscoito.");
+      });
+    </script>
+  </body>
+</html>
